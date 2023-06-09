@@ -3,9 +3,11 @@ import streamlit as st
 from streamlit_folium import folium_static
 import folium
 
+# 修改文件路径：从GitHub获取Excel文件的URL路径
+file_url = "https://github.com/woosh2010/streamlit-example/raw/main/data/map.xlsx"
+
 # 读取Excel文件
-df = pd.read_excel('/Users/cyrus/PycharmProjects/pythonProject/比亚迪经销商明细批量获取并对比/map.xlsx',
-                   engine='openpyxl')
+df = pd.read_excel(file_url, engine='openpyxl')
 
 # 创建省份下拉框
 provinces = ['全部'] + sorted(list(df['所属省份'].unique()), key=lambda x: len(df[df['所属省份'] == x]), reverse=True)
